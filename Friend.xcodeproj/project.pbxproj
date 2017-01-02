@@ -9,25 +9,30 @@
 /* Begin PBXBuildFile section */
 		281E3A7DD725FB983593F9D4 /* Pods_Friend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A9A8B108D998E67DBCC4C8 /* Pods_Friend.framework */; };
 		C1988C7B1E133AC900FA6482 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1988C7A1E133AC900FA6482 /* AppDelegate.swift */; };
-		C1988C7D1E133AC900FA6482 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1988C7C1E133AC900FA6482 /* ViewController.swift */; };
 		C1988C801E133AC900FA6482 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1988C7E1E133AC900FA6482 /* Main.storyboard */; };
 		C1988C821E133AC900FA6482 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1988C811E133AC900FA6482 /* Assets.xcassets */; };
 		C1988C851E133AC900FA6482 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1988C831E133AC900FA6482 /* LaunchScreen.storyboard */; };
 		C1988C8D1E133B3600FA6482 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C1988C8C1E133B3600FA6482 /* GoogleService-Info.plist */; };
+		C1988C921E133F5C00FA6482 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1988C911E133F5C00FA6482 /* LoginViewController.swift */; };
+		C1BF49391E19E11000074417 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BF49381E19E11000074417 /* RegisterViewController.swift */; };
+		C1BF493D1E1A058F00074417 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BF493C1E1A058F00074417 /* EventsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0C0E6A8EBC223FC75D11B87D /* Pods-Friend.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Friend.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Friend/Pods-Friend.debug.xcconfig"; sourceTree = "<group>"; };
 		69A9A8B108D998E67DBCC4C8 /* Pods_Friend.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Friend.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA091F67AE46540620D847C4 /* Pods-Friend.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Friend.release.xcconfig"; path = "Pods/Target Support Files/Pods-Friend/Pods-Friend.release.xcconfig"; sourceTree = "<group>"; };
+		C123A29D1E19DC9B004EC4D6 /* Friend.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Friend.entitlements; sourceTree = "<group>"; };
 		C1988C771E133AC900FA6482 /* Friend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Friend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1988C7A1E133AC900FA6482 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C1988C7C1E133AC900FA6482 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C1988C7F1E133AC900FA6482 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C1988C811E133AC900FA6482 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C1988C841E133AC900FA6482 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C1988C861E133AC900FA6482 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C1988C8C1E133B3600FA6482 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C1988C911E133F5C00FA6482 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C1BF49381E19E11000074417 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		C1BF493C1E1A058F00074417 /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,9 +76,10 @@
 		C1988C791E133AC900FA6482 /* Friend */ = {
 			isa = PBXGroup;
 			children = (
-				C1988C7C1E133AC900FA6482 /* ViewController.swift */,
+				C1988C911E133F5C00FA6482 /* LoginViewController.swift */,
+				C1BF49381E19E11000074417 /* RegisterViewController.swift */,
+				C1BF493C1E1A058F00074417 /* EventsViewController.swift */,
 				C1988C7E1E133AC900FA6482 /* Main.storyboard */,
-				C1988C831E133AC900FA6482 /* LaunchScreen.storyboard */,
 				C1988C8E1E133B4200FA6482 /* Supporting Files */,
 			);
 			path = Friend;
@@ -82,7 +88,9 @@
 		C1988C8E1E133B4200FA6482 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C123A29D1E19DC9B004EC4D6 /* Friend.entitlements */,
 				C1988C7A1E133AC900FA6482 /* AppDelegate.swift */,
+				C1988C831E133AC900FA6482 /* LaunchScreen.storyboard */,
 				C1988C811E133AC900FA6482 /* Assets.xcassets */,
 				C1988C861E133AC900FA6482 /* Info.plist */,
 				C1988C8C1E133B3600FA6482 /* GoogleService-Info.plist */,
@@ -134,7 +142,13 @@
 				TargetAttributes = {
 					C1988C761E133AC800FA6482 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 4B42SA9C2A;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -223,7 +237,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1988C7D1E133AC900FA6482 /* ViewController.swift in Sources */,
+				C1BF49391E19E11000074417 /* RegisterViewController.swift in Sources */,
+				C1BF493D1E1A058F00074417 /* EventsViewController.swift in Sources */,
+				C1988C921E133F5C00FA6482 /* LoginViewController.swift in Sources */,
 				C1988C7B1E133AC900FA6482 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,6 +362,8 @@
 			baseConfigurationReference = 0C0E6A8EBC223FC75D11B87D /* Pods-Friend.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Friend/Friend.entitlements;
+				DEVELOPMENT_TEAM = 4B42SA9C2A;
 				INFOPLIST_FILE = Friend/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Friend.Friend;
@@ -359,6 +377,8 @@
 			baseConfigurationReference = AA091F67AE46540620D847C4 /* Pods-Friend.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Friend/Friend.entitlements;
+				DEVELOPMENT_TEAM = 4B42SA9C2A;
 				INFOPLIST_FILE = Friend/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Friend.Friend;
