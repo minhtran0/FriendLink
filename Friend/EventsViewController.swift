@@ -8,9 +8,13 @@
 
 import UIKit
 import FirebaseAuth
-import Firebase
+import FirebaseDatabase
 
-class EventsViewController: UIViewController {
+class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    var uid:String = ""
+    
+    let root = FIRDatabase.database().reference()
 
     @IBAction func logout(_ sender: Any) {
         try! FIRAuth.auth()!.signOut()
@@ -19,7 +23,31 @@ class EventsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        uid = (FIRAuth.auth()?.currentUser?.uid)!
+        // Query list of user's friends
+        queryFriends()
     }
+    func queryFriends() {
+        let users = root.child("users/uid")
+        let friends =
+    }
+    
+    // MARK: - UITableViewDataSource
+    
+    @available(iOS 2.0, *)
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        return 0
+    }
+    
+    
+    // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
+    // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
+    
+    @available(iOS 2.0, *)
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return nil
+    }
+
     
     
 

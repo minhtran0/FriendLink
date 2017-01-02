@@ -27,9 +27,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.password.delegate = self
         
         FIRAuth.auth()!.addStateDidChangeListener() { auth, user in
-            // 2
             if user != nil {
-                // 3
                 self.performSegue(withIdentifier: "login", sender: nil)
             }
         }

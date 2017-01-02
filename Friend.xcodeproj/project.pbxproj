@@ -16,6 +16,8 @@
 		C1988C921E133F5C00FA6482 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1988C911E133F5C00FA6482 /* LoginViewController.swift */; };
 		C1BF49391E19E11000074417 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BF49381E19E11000074417 /* RegisterViewController.swift */; };
 		C1BF493D1E1A058F00074417 /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BF493C1E1A058F00074417 /* EventsViewController.swift */; };
+		C1BF49411E1A0BBB00074417 /* EventsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BF49401E1A0BBB00074417 /* EventsTableViewCell.swift */; };
+		C1BF49431E1A2B0500074417 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BF49421E1A2B0500074417 /* Event.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		C1988C911E133F5C00FA6482 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C1BF49381E19E11000074417 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		C1BF493C1E1A058F00074417 /* EventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
+		C1BF49401E1A0BBB00074417 /* EventsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewCell.swift; sourceTree = "<group>"; };
+		C1BF49421E1A2B0500074417 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +81,10 @@
 			isa = PBXGroup;
 			children = (
 				C1988C911E133F5C00FA6482 /* LoginViewController.swift */,
+				C1BF49421E1A2B0500074417 /* Event.swift */,
 				C1BF49381E19E11000074417 /* RegisterViewController.swift */,
 				C1BF493C1E1A058F00074417 /* EventsViewController.swift */,
+				C1BF49401E1A0BBB00074417 /* EventsTableViewCell.swift */,
 				C1988C7E1E133AC900FA6482 /* Main.storyboard */,
 				C1988C8E1E133B4200FA6482 /* Supporting Files */,
 			);
@@ -239,7 +245,9 @@
 			files = (
 				C1BF49391E19E11000074417 /* RegisterViewController.swift in Sources */,
 				C1BF493D1E1A058F00074417 /* EventsViewController.swift in Sources */,
+				C1BF49411E1A0BBB00074417 /* EventsTableViewCell.swift in Sources */,
 				C1988C921E133F5C00FA6482 /* LoginViewController.swift in Sources */,
+				C1BF49431E1A2B0500074417 /* Event.swift in Sources */,
 				C1988C7B1E133AC900FA6482 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
