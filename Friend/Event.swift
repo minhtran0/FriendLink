@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Event {
+class Event: CustomStringConvertible {
     var event_id: String
     var text: String
     var type: String
@@ -21,5 +21,8 @@ struct Event {
         self.type = type
         self.host = host
         self.post_time = post_time
+    }
+    public var description: String {
+        return "\(event_id), \(text)"
     }
 }

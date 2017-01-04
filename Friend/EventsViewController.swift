@@ -12,9 +12,11 @@ import FirebaseDatabase
 
 class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var uid:String = ""
-    
+    @IBOutlet weak var tableview: UITableView!
     let root = FIRDatabase.database().reference()
+    var uid:String = ""
+    var friendList = [String]()
+    var events = [Event]()
 
     @IBAction func logout(_ sender: Any) {
         try! FIRAuth.auth()!.signOut()
@@ -23,20 +25,58 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        tableview.delegate = self
+        tableview.dataSource = self
         uid = (FIRAuth.auth()?.currentUser?.uid)!
         // Query list of user's friends
-        queryFriends()
+        getFriendList(completion: {result->() in
+            self.friendList = result
+            print("============")
+            print(self.friendList)
+            self.pullEvents(completion: {result2->() in
+                self.events = result2
+                print("-=-=-=-=-=-=-=-")
+                print(self.events)
+                self.tableview.reloadData()
+            })
+        })
     }
-    func queryFriends() {
-        let users = root.child("users/uid")
-        let friends =
+    func pullEvents(completion:@escaping ([Event])->()) {
+        for friend_uid in friendList {
+            let path = "posts/post_id"
+            let eventsRef = root.child(path)
+            eventsRef.queryOrdered(byChild: "sender_uid").queryEqual(toValue: friend_uid).observeSingleEvent(of: .value, with: { snapshot in
+                var eventsTemp = [Event]()
+                for child in snapshot.children.allObjects as! [FIRDataSnapshot] {
+                    eventsTemp.append(Event(
+                        event_id: child.key,
+                        text: ((child.value as? NSDictionary)?["post_message"] as? String)!,
+                        type: "dining",
+                        host: friend_uid,
+                        post_time: ((child.value as? NSDictionary)?["post_time"] as? String)!
+                    ))
+                }
+                completion(eventsTemp)
+            })
+        }
+    }
+    func getFriendList(completion:@escaping ([String])->()) {
+        let path = "users/uid/"+uid+"/friends"
+        let friends = root.child(path)
+        friends.queryOrderedByKey().observeSingleEvent(of: .value, with: { snapshot in
+            var friendListTemp = [String]()
+            for child in snapshot.children.allObjects as! [FIRDataSnapshot] {
+                friendListTemp.append((child.value! as? String)!)
+            }
+            completion(friendListTemp)
+        })
     }
     
     // MARK: - UITableViewDataSource
     
     @available(iOS 2.0, *)
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return 0
+        return events.count
     }
     
     
@@ -45,7 +85,20 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @available(iOS 2.0, *)
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return nil
+        
+        let cellIdentifier = "EventsTableViewCell"
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! EventsTableViewCell
+        
+        // Fetches the appropriate game for the data source layout.
+        let curr = events[indexPath.row]
+        
+        // Configure the cell
+        cell.event_text.text = curr.text
+        cell.name.text = curr.host
+        cell.post_time.text = curr.post_time
+        
+        return cell
     }
 
     
