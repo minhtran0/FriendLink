@@ -9,4 +9,5 @@ target 'Friend' do
     pod 'Firebase'
     pod 'Firebase/Database'
     pod 'Firebase/Auth'
+    pod 'JSQMessagesViewController'
 end
