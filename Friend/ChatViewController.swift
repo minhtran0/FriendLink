@@ -17,7 +17,9 @@ class ChatViewController: JSQMessagesViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tabBarController?.tabBar.isHidden = true
         self.senderId = FIRAuth.auth()?.currentUser?.uid
+        self.senderDisplayName = "michael"
 
         // Do any additional setup after loading the view.
         // No avatars
@@ -27,8 +29,8 @@ class ChatViewController: JSQMessagesViewController {
         // messages from someone else
         addMessage(withId: "foo", name: "Mr.Bolt", text: "I am so fast!")
         // messages sent from local sender
-        addMessage(withId: "123", name: "Me", text: "I bet I can run faster than you!")
-        addMessage(withId: "123", name: "Me", text: "I like to run!")
+        addMessage(withId: senderId, name: "Me", text: "I bet I can run faster than you!")
+        addMessage(withId: senderId, name: "Me", text: "I like to run!")
         // animates the receiving of a new message on the view
         finishReceivingMessage()
     }
@@ -39,6 +41,24 @@ class ChatViewController: JSQMessagesViewController {
         }
     }
     
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
+        let message = messages[indexPath.item] // 1
+        if message.senderId == senderId { // 2
+            return outgoingBubbleImageView
+        } else { // 3
+            return incomingBubbleImageView
+        }
+    }
+    
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageDataForItemAt indexPath: IndexPath!) -> JSQMessageData! {
+        return messages[indexPath.item]
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return messages.count
+    }
+    
+    
     // Setting up bubbles for chat
     
     lazy var outgoingBubbleImageView: JSQMessagesBubbleImage = self.setupOutgoingBubble()
@@ -46,7 +66,7 @@ class ChatViewController: JSQMessagesViewController {
     
     private func setupOutgoingBubble() -> JSQMessagesBubbleImage {
         let bubbleImageFactory = JSQMessagesBubbleImageFactory()
-        return bubbleImageFactory!.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleBlue())
+        return bubbleImageFactory!.outgoingMessagesBubbleImage(with: UIColor.jsq_messageBubbleGreen())
     }
     
     private func setupIncomingBubble() -> JSQMessagesBubbleImage {
