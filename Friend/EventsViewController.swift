@@ -43,22 +43,29 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     func pullEvents(completion:@escaping ([Event])->()) {
         for friend_uid in friendList {
-            let path = "posts/post_id"
-            let eventsRef = root.child(path)
-            eventsRef.queryOrdered(byChild: "sender_uid").queryEqual(toValue: friend_uid).observeSingleEvent(of: .value, with: { snapshot in
-                var eventsTemp = [Event]()
-                for child in snapshot.children.allObjects as! [FIRDataSnapshot] {
-                    eventsTemp.append(Event(
-                        event_id: child.key,
-                        text: ((child.value as? NSDictionary)?["post_message"] as? String)!,
-                        type: "dining",
-                        host: friend_uid,
-                        post_time: ((child.value as? NSDictionary)?["post_time"] as? String)!
-                    ))
-                }
-                completion(eventsTemp)
+            eventsQuery(friend_uid: friend_uid, completion: {result->() in
+                self.events += result
+                completion(self.events)
             })
         }
+    }
+    func eventsQuery(friend_uid: String, completion:@escaping ([Event])->()) {
+        let path = "posts/post_id"
+        let eventsRef = root.child(path)
+        var eventsTemp = [Event]()
+        eventsRef.queryOrdered(byChild: "sender_uid").queryEqual(toValue: friend_uid).observeSingleEvent(of: .value, with: { snapshot in
+            
+            for child in snapshot.children.allObjects as! [FIRDataSnapshot] {
+                eventsTemp.append(Event(
+                    event_id: child.key,
+                    text: ((child.value as? NSDictionary)?["post_message"] as? String)!,
+                    type: "dining",
+                    host: friend_uid,
+                    post_time: ((child.value as? NSDictionary)?["post_time"] as? String)!
+                ))
+            }
+            completion(eventsTemp)
+        })
     }
     func getFriendList(completion:@escaping ([String])->()) {
         let path = "users/uid/"+uid+"/friends"
