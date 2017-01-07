@@ -8,12 +8,18 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
 import FirebaseAuth
 import JSQMessagesViewController
 
 class ChatViewController: JSQMessagesViewController {
     
+    let root = FIRDatabase.database().reference()
     var messages = [JSQMessage]()
+    var messageRef: FIRDatabaseReference?
+    
+    var post_id: String = "eiwogeiwogh"
+    var chat_room: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,13 +32,55 @@ class ChatViewController: JSQMessagesViewController {
         collectionView!.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
         collectionView!.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
 
-        // messages from someone else
-        addMessage(withId: "foo", name: "Mr.Bolt", text: "I am so fast!")
-        // messages sent from local sender
-        addMessage(withId: senderId, name: "Me", text: "I bet I can run faster than you!")
-        addMessage(withId: senderId, name: "Me", text: "I like to run!")
-        // animates the receiving of a new message on the view
-        finishReceivingMessage()
+        // Find post id and observe for new messages
+        findChatRoom(completion: {result->() in
+            self.chat_room = result
+            self.observeMessages()
+        })
+    }
+    
+    override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
+        let itemRef = messageRef?.childByAutoId()
+        let messageItem = [
+            "sender_uid": senderId!,
+            "sender_name": senderDisplayName!,
+            "text": text!,
+            "send_time": NSDate() as? String,
+            ]
+        
+        itemRef?.setValue(messageItem)
+        
+        JSQSystemSoundPlayer.jsq_playMessageSentSound()
+        
+        finishSendingMessage()
+    }
+    
+    private func observeMessages() {
+        let path = "messages/chat_room/\(chat_room)/message_id"
+        messageRef = root.child(path)
+        let messageQuery = messageRef?.queryLimited(toLast:25)
+        var newMessageRefHandle = messageQuery?.observe(.childAdded, with: { (snapshot) -> Void in
+            let messageData = snapshot.value as! NSDictionary
+            if let id = messageData["sender_uid"] as! String!, let name = messageData["sender_name"] as! String!, let text = messageData["text"] as! String!, text.characters.count > 0 {
+                self.addMessage(withId: id, name: name, text: text)
+                self.finishReceivingMessage()
+            } else {
+                print("Error! Could not decode message data")
+            }
+        })
+    }
+    
+    func findChatRoom(completion:@escaping (String)->()) {
+        let path = "messages/chat_room"
+        let chatRef = root.child(path)
+        chatRef.queryOrdered(byChild: "post_id").queryEqual(toValue: post_id).observeSingleEvent(of: .value, with: { snapshot in
+            for child in snapshot.children.allObjects as! [FIRDataSnapshot] {
+                print(child.key)
+                completion(child.key)
+                break
+            }
+        })
+
     }
     
     private func addMessage(withId id: String, name: String, text: String) {
@@ -42,10 +90,10 @@ class ChatViewController: JSQMessagesViewController {
     }
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
-        let message = messages[indexPath.item] // 1
-        if message.senderId == senderId { // 2
+        let message = messages[indexPath.item]
+        if message.senderId == senderId {
             return outgoingBubbleImageView
-        } else { // 3
+        } else {
             return incomingBubbleImageView
         }
     }
