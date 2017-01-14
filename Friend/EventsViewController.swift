@@ -9,6 +9,8 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import MGSwipeTableCell
+import ChameleonFramework
 
 class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -83,7 +85,7 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @available(iOS 2.0, *)
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return events.count
+        return events.count+1
     }
     
     
@@ -93,22 +95,38 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @available(iOS 2.0, *)
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        if indexPath.row == 0 {
+            let cellIdentifier = "AddEventCell"
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! UITableViewCell
+            return cell
+        }
+        
         let cellIdentifier = "EventsTableViewCell"
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! EventsTableViewCell
         
-        // Fetches the appropriate game for the data source layout.
-        let curr = events[indexPath.row]
+        // Fetches the appropriate event for the data source layout.
+        let curr = events[indexPath.row-1]
         
         // Configure the cell
         cell.event_text.text = curr.text
         cell.name.text = curr.host
         cell.post_time.text = curr.post_time
         
+        cell.rightButtons = [MGSwipeButton(title: "Interested", backgroundColor: UIColor.blue.flatten())
+            ,MGSwipeButton(title: "Chat",backgroundColor: UIColor.green.flatten())]
+        cell.rightSwipeSettings.transition = MGSwipeTransition.border
+
+        
         return cell
     }
 
-    
+    @nonobjc func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    @nonobjc func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
     
 
     /*

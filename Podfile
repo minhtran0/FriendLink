@@ -10,4 +10,9 @@ target 'Friend' do
     pod 'Firebase/Database'
     pod 'Firebase/Auth'
     pod 'JSQMessagesViewController'
+    pod 'MGSwipeTableCell'
+    pod 'ChameleonFramework/Swift'
+    pod 'Fusuma'
+    pod 'QRCode'
+    pod 'QRCodeReader.swift', '~> 7.2.0'
 end

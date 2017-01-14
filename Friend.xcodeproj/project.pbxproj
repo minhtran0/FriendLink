@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		281E3A7DD725FB983593F9D4 /* Pods_Friend.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A9A8B108D998E67DBCC4C8 /* Pods_Friend.framework */; };
+		C11CA7431E295BE5003152C7 /* MeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11CA7421E295BE5003152C7 /* MeTableViewController.swift */; };
+		C1402FD81E29888800F4F09B /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1402FD71E29888800F4F09B /* QRCodeViewController.swift */; };
 		C15F85781E1E0A3000D62459 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15F85771E1E0A2F00D62459 /* ChatViewController.swift */; };
 		C1988C7B1E133AC900FA6482 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1988C7A1E133AC900FA6482 /* AppDelegate.swift */; };
 		C1988C801E133AC900FA6482 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1988C7E1E133AC900FA6482 /* Main.storyboard */; };
@@ -22,13 +24,16 @@
 		C1BF49431E1A2B0500074417 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BF49421E1A2B0500074417 /* Event.swift */; };
 		C1E5E4E61E1DD5C300A5B320 /* NewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E5E4E51E1DD5C300A5B320 /* NewEventViewController.swift */; };
 		C1E5E4E81E1DDA1700A5B320 /* new_event_back.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C1E5E4E71E1DDA1700A5B320 /* new_event_back.jpg */; };
+		C1F040851E21FD940041533E /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F040841E21FD940041533E /* CameraViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0C0E6A8EBC223FC75D11B87D /* Pods-Friend.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Friend.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Friend/Pods-Friend.debug.xcconfig"; sourceTree = "<group>"; };
 		69A9A8B108D998E67DBCC4C8 /* Pods_Friend.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Friend.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA091F67AE46540620D847C4 /* Pods-Friend.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Friend.release.xcconfig"; path = "Pods/Target Support Files/Pods-Friend/Pods-Friend.release.xcconfig"; sourceTree = "<group>"; };
+		C11CA7421E295BE5003152C7 /* MeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeTableViewController.swift; sourceTree = "<group>"; };
 		C123A29D1E19DC9B004EC4D6 /* Friend.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Friend.entitlements; sourceTree = "<group>"; };
+		C1402FD71E29888800F4F09B /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		C15F85771E1E0A2F00D62459 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		C1988C771E133AC900FA6482 /* Friend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Friend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1988C7A1E133AC900FA6482 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +50,7 @@
 		C1BF49421E1A2B0500074417 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		C1E5E4E51E1DD5C300A5B320 /* NewEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewEventViewController.swift; sourceTree = "<group>"; };
 		C1E5E4E71E1DDA1700A5B320 /* new_event_back.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = new_event_back.jpg; sourceTree = "<group>"; };
+		C1F040841E21FD940041533E /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +94,7 @@
 		C1988C791E133AC900FA6482 /* Friend */ = {
 			isa = PBXGroup;
 			children = (
+				C1F040841E21FD940041533E /* CameraViewController.swift */,
 				C1988C911E133F5C00FA6482 /* LoginViewController.swift */,
 				C1BF49421E1A2B0500074417 /* Event.swift */,
 				C1BF49381E19E11000074417 /* RegisterViewController.swift */,
@@ -95,7 +102,9 @@
 				C1BF49401E1A0BBB00074417 /* EventsTableViewCell.swift */,
 				C1988C7E1E133AC900FA6482 /* Main.storyboard */,
 				C15F85771E1E0A2F00D62459 /* ChatViewController.swift */,
+				C11CA7421E295BE5003152C7 /* MeTableViewController.swift */,
 				C1B246901E1FB7E600BE04D9 /* Message.swift */,
+				C1402FD71E29888800F4F09B /* QRCodeViewController.swift */,
 				C1E5E4E51E1DD5C300A5B320 /* NewEventViewController.swift */,
 				C1E5E4E71E1DDA1700A5B320 /* new_event_back.jpg */,
 				C1988C8E1E133B4200FA6482 /* Supporting Files */,
@@ -257,9 +266,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1BF49391E19E11000074417 /* RegisterViewController.swift in Sources */,
+				C1F040851E21FD940041533E /* CameraViewController.swift in Sources */,
 				C1BF493D1E1A058F00074417 /* EventsViewController.swift in Sources */,
 				C15F85781E1E0A3000D62459 /* ChatViewController.swift in Sources */,
+				C11CA7431E295BE5003152C7 /* MeTableViewController.swift in Sources */,
 				C1B246911E1FB7E700BE04D9 /* Message.swift in Sources */,
+				C1402FD81E29888800F4F09B /* QRCodeViewController.swift in Sources */,
 				C1BF49411E1A0BBB00074417 /* EventsTableViewCell.swift in Sources */,
 				C1988C921E133F5C00FA6482 /* LoginViewController.swift in Sources */,
 				C1E5E4E61E1DD5C300A5B320 /* NewEventViewController.swift in Sources */,

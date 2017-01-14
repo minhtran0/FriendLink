@@ -1,4 +1,7 @@
 PODS:
+  - ChameleonFramework/Default (2.1.0)
+  - ChameleonFramework/Swift (2.1.0):
+    - ChameleonFramework/Default
   - Firebase (3.8.0):
     - Firebase/Core (= 3.8.0)
   - Firebase/Auth (3.8.0):
@@ -26,6 +29,7 @@ PODS:
   - FirebaseDatabase (3.1.0):
     - FirebaseAnalytics (~> 3.4)
   - FirebaseInstanceID (1.0.8)
+  - Fusuma (1.0.0)
   - GoogleInterchangeUtilities (1.2.2):
     - GoogleSymbolUtilities (~> 1.1)
   - GoogleSymbolUtilities (1.1.2)
@@ -43,27 +47,40 @@ PODS:
   - JSQMessagesViewController (7.3.4):
     - JSQSystemSoundPlayer (~> 2.0.1)
   - JSQSystemSoundPlayer (2.0.1)
+  - MGSwipeTableCell (1.5.6)
+  - QRCode (0.5)
+  - QRCodeReader.swift (7.2.0)
 
 DEPENDENCIES:
+  - ChameleonFramework/Swift
   - Firebase
   - Firebase/Auth
   - Firebase/Database
+  - Fusuma
   - JSQMessagesViewController
+  - MGSwipeTableCell
+  - QRCode
+  - QRCodeReader.swift (~> 7.2.0)
 
 SPEC CHECKSUMS:
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   Firebase: fdbecadb7b5cbef2774852d4fa659b9daf11f2af
   FirebaseAnalytics: 6e58fc9b397664369ac7617fb0ba93fab6ba7b5b
   FirebaseAuth: 96e9674ff31d6e1f826d53e26aa003a57cab0295
   FirebaseCore: d0ed25f27b6f9158eccc439f1be6f92e81207e28
   FirebaseDatabase: 3ebb2edb6007c3f0f87b248f3fa212bde56a1468
   FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
+  Fusuma: c95c1c999c765f5dc907670be569157372ff33c4
   GoogleInterchangeUtilities: d5bc4d88d5b661ab72f9d70c58d02ca8c27ad1f7
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
   GTMSessionFetcher: a1f8ed39e4fe21c68957daed472c7afbcdf29166
   JSQMessagesViewController: 39fed975e3c9f8eba7292071e29eeb541d105e66
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
+  MGSwipeTableCell: 616700eb0ffd1c611ba909066cb7fd739790a0a7
+  QRCode: a249ed747aeb0f4bf5f9c58b5b001b6b3bc80073
+  QRCodeReader.swift: 2ddf74993243106dd2be5cf9f6e13c7a3e9a2d00
 
-PODFILE CHECKSUM: 60edeb6761f6b7f6caf3821d139eef07a337df2e
+PODFILE CHECKSUM: a4473151d326fdfd022e75c4726617036db5c53b
 
 COCOAPODS: 1.1.1

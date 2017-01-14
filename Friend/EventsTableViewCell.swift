@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MGSwipeTableCell
 
-class EventsTableViewCell: UITableViewCell {
+class EventsTableViewCell: MGSwipeTableCell {
 
     @IBOutlet weak var event_text: UILabel!
     @IBOutlet weak var name: UILabel!
