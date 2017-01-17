@@ -15,4 +15,6 @@ target 'Friend' do
     pod 'Fusuma'
     pod 'QRCode'
     pod 'QRCodeReader.swift', '~> 7.2.0'
+    pod 'PullToMakeSoup', '~> 2.0'
+    pod 'Eureka', '~> 2.0.0-beta.1'
 end

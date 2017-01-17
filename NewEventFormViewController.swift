@@ -1,24 +1,19 @@
 //
-//  NewEventViewController.swift
-//  Friend
+//  NewEventFormViewController.swift
+//  
 //
-//  Created by Minh Tran on 1/4/17.
-//  Copyright © 2017 Minh. All rights reserved.
+//  Created by Minh Tran on 1/16/17.
+//
 //
 
 import UIKit
 
-class NewEventViewController: UIViewController {
+class NewEventFormViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        let yourImage = UIImage(named: "new_event_back.jpg")
-        let imageview = UIImageView(image: yourImage)
-        self.view.addSubview(imageview)
     }
 
     override func didReceiveMemoryWarning() {

@@ -2,6 +2,7 @@ PODS:
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
+  - Eureka (2.0.0-beta.1)
   - Firebase (3.8.0):
     - Firebase/Core (= 3.8.0)
   - Firebase/Auth (3.8.0):
@@ -48,22 +49,28 @@ PODS:
     - JSQSystemSoundPlayer (~> 2.0.1)
   - JSQSystemSoundPlayer (2.0.1)
   - MGSwipeTableCell (1.5.6)
+  - PullToMakeSoup (2.0):
+    - PullToRefresher (~> 2.0)
+  - PullToRefresher (2.0.2)
   - QRCode (0.5)
   - QRCodeReader.swift (7.2.0)
 
 DEPENDENCIES:
   - ChameleonFramework/Swift
+  - Eureka (~> 2.0.0-beta.1)
   - Firebase
   - Firebase/Auth
   - Firebase/Database
   - Fusuma
   - JSQMessagesViewController
   - MGSwipeTableCell
+  - PullToMakeSoup (~> 2.0)
   - QRCode
   - QRCodeReader.swift (~> 7.2.0)
 
 SPEC CHECKSUMS:
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  Eureka: d014adf16406745e1a78d5790ea37ed130a0a8e5
   Firebase: fdbecadb7b5cbef2774852d4fa659b9daf11f2af
   FirebaseAnalytics: 6e58fc9b397664369ac7617fb0ba93fab6ba7b5b
   FirebaseAuth: 96e9674ff31d6e1f826d53e26aa003a57cab0295
@@ -78,9 +85,11 @@ SPEC CHECKSUMS:
   JSQMessagesViewController: 39fed975e3c9f8eba7292071e29eeb541d105e66
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
   MGSwipeTableCell: 616700eb0ffd1c611ba909066cb7fd739790a0a7
+  PullToMakeSoup: 384a57220e1c197220427494d5959dda73400435
+  PullToRefresher: 5e101a8c3523e67ee0291375ba932ef59e0853c2
   QRCode: a249ed747aeb0f4bf5f9c58b5b001b6b3bc80073
   QRCodeReader.swift: 2ddf74993243106dd2be5cf9f6e13c7a3e9a2d00
 
-PODFILE CHECKSUM: a4473151d326fdfd022e75c4726617036db5c53b
+PODFILE CHECKSUM: 3d8db6862c38888849f1b4fdf86d41dcff3d8d44
 
 COCOAPODS: 1.1.1

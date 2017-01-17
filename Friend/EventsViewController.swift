@@ -29,6 +29,7 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Do any additional setup after loading the view.
         tableview.delegate = self
         tableview.dataSource = self
+        
         uid = (FIRAuth.auth()?.currentUser?.uid)!
         // Query list of user's friends
         getFriendList(completion: {result->() in
@@ -113,8 +114,16 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.name.text = curr.host
         cell.post_time.text = curr.post_time
         
-        cell.rightButtons = [MGSwipeButton(title: "Interested", backgroundColor: UIColor.blue.flatten())
-            ,MGSwipeButton(title: "Chat",backgroundColor: UIColor.green.flatten())]
+        cell.rightButtons = [MGSwipeButton(title: "Interested", backgroundColor: UIColor.blue.flatten(), callback: {
+            (sender: MGSwipeTableCell!) -> Bool in
+                // Send host a notification that user is interested
+                return true
+            })
+            ,MGSwipeButton(title: "Chat",backgroundColor: UIColor.green.flatten(), callback: {
+                (sender: MGSwipeTableCell!) -> Bool in
+                // Segue user to chatroom
+                return true
+            })]
         cell.rightSwipeSettings.transition = MGSwipeTransition.border
 
         
