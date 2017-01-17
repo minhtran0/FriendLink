@@ -15,12 +15,17 @@ class Event: CustomStringConvertible {
     var host: String
     var post_time: String
     
-    init(event_id:String, text:String, type:String, host:String, post_time:String) {
+    var isInterested: Bool
+    var isHost: Bool
+    
+    init(event_id:String, text:String, type:String, host:String, post_time:String, isInterested: Bool, isHost: Bool) {
         self.event_id = event_id
         self.text = text
         self.type = type
         self.host = host
         self.post_time = post_time
+        self.isInterested = isInterested
+        self.isHost = isHost
     }
     public var description: String {
         return "\(event_id), \(text)"

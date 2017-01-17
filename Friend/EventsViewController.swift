@@ -34,6 +34,7 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Query list of user's friends
         getFriendList(completion: {result->() in
             self.friendList = result
+            self.friendList.append(self.uid)
             print("============")
             print(self.friendList)
             self.pullEvents(completion: {result2->() in
@@ -64,7 +65,9 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     text: ((child.value as? NSDictionary)?["post_message"] as? String)!,
                     type: "dining",
                     host: friend_uid,
-                    post_time: ((child.value as? NSDictionary)?["post_time"] as? String)!
+                    post_time: ((child.value as? NSDictionary)?["post_time"] as? String)!,
+                    isInterested: false, // change these values later
+                    isHost: false
                 ))
             }
             completion(eventsTemp)
@@ -117,6 +120,9 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.rightButtons = [MGSwipeButton(title: "Interested", backgroundColor: UIColor.blue.flatten(), callback: {
             (sender: MGSwipeTableCell!) -> Bool in
                 // Send host a notification that user is interested
+                self.markInterest(event_id: self.events[indexPath.row-1].event_id) {_ in
+                    
+                }
                 return true
             })
             ,MGSwipeButton(title: "Chat",backgroundColor: UIColor.green.flatten(), callback: {
@@ -129,12 +135,21 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         return cell
     }
-
-    @nonobjc func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+    func markInterest(event_id: String, completion:@escaping (Bool)->()) {
+        // Add a pending user
+        let path = "posts/post_id/\(event_id)/pending"
+        let ref = root.child(path)
+        let pending = [uid:["name":"Visitor"]]
+        ref.setValue(pending)
+        
+        // Notifiy host that a user is interested
     }
-    @nonobjc func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return 20
+        } else {
+            return UITableViewAutomaticDimension
+        }
     }
     
 

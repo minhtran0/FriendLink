@@ -118,7 +118,23 @@ class NewEventFormViewController: FormViewController {
             let eventsRef = root.child(path)
             let ref = eventsRef.childByAutoId()
             ref.setValue(event)
+            
+            
+            let alertController = UIAlertController(title: "HangOut", message:
+                "Your event was created successfully", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: popNavigation))
+            self.present(alertController, animated: true, completion: nil)
         }
+        else {
+            let alertController = UIAlertController(title: "HangOut", message:
+                "There was an error in creating your event. Please try again in a few moment.", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+        }
+        
+    }
+    func popNavigation(alert: UIAlertAction!) {
+        navigationController?.popViewController(animated: true)
     }
 
     override func didReceiveMemoryWarning() {
